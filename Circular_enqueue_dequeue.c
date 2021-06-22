@@ -40,9 +40,9 @@ int main(){
 	cq.rear=SIZE-1;
 	int choose,num;
 	while(1){
-		printf("\n---------------------\n");
+		printf("\n-----------------------\n");
 		printf("\nChoose an option \n1.Enqueue \n2.Dequeue \n3.Display ");
-		printf("\n---------------------\n");
+		printf("\n-----------------------\n");
 	scanf("%d",&choose);
 	switch(choose){
 		case 1:
