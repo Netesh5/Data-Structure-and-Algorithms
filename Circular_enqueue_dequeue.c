@@ -25,12 +25,12 @@ void dequeue(struct CQueue *cq){
 }
 void display(struct CQueue *cq){
 	int i;
-	if(cq->front==SIZE-1 && cq->rear==SIZE-1){
+	if(cq->rear==cq->front){
 		printf("\nQueue is empty\n");
 	}
 	else{
 		printf("\nContent of Queue : \n");
-		for(i=cq->front;i<=cq->rear;i=(i+1)%SIZE){
+		for(i=(cq->front+1)%SIZE;i!=cq->rear;i=(i+1)%SIZE){
 			printf("%d\t",cq->item[i]);
 		}
 	}
