@@ -33,6 +33,7 @@ void display(struct CQueue *cq){
 		for(i=(cq->front+1)%SIZE;i!=cq->rear;i=(i+1)%SIZE){
 			printf("%d\t",cq->item[i]);
 		}
+		printf("%d\t",cq->item[cq->rear]);
 	}
 }
 int main(){
