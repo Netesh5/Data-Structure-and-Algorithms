@@ -1,137 +1,84 @@
-<<<<<<< HEAD
-#include<stdio.h>
+#include <stdio.h>
 #define SIZE 5
-struct CQueue{
-	int front,rear;
+struct CQueue
+{
+	int front, rear;
 	int item[SIZE];
-}cq;
+} cq;
 
 //to insert the element in cirular queue
-void enqueue(struct CQueue *cq,int num){
-	if((cq->rear+1)%SIZE==cq->front){
+void enqueue(struct CQueue *cq, int num)
+{
+	if ((cq->rear + 1) % SIZE == cq->front)
+	{
 		printf("\nQueue overflow\n");
 	}
-	else{
-		cq->rear=(cq->rear+1)%SIZE;
-		cq->item[cq->rear]=num;
+	else
+	{
+		cq->rear = (cq->rear + 1) % SIZE;
+		cq->item[cq->rear] = num;
 	}
 
-//to delete the element in cirular queue
-void dequeue(struct CQueue *cq){
-	if(cq->rear==cq->front){
-		printf("\nQueue underflow\n");
-	}
-	else{
-		cq->front=(cq->front+1)%SIZE;
-		int dt=cq->item[cq->front];
-		printf("\nDequeue item : %d\n",dt);
-	}
-}
-//to display the element in cirular queue
-void display(struct CQueue *cq){
-	int i;
-	if(cq->rear==cq->front){
-		printf("\nQueue is empty\n");
-	}
-	else{
-		printf("\nContent of Queue : \n");
-		for(i=(cq->front+1)%SIZE;i!=cq->rear;i=(i+1)%SIZE){
-			printf("%d\t",cq->item[i]);
+	//to delete the element in cirular queue
+	void dequeue(struct CQueue * cq)
+	{
+		if (cq->rear == cq->front)
+		{
+			printf("\nQueue underflow\n");
 		}
-		printf("%d\t",cq->item[cq->rear]);
-	}
-}
-int main(){
-	cq.front=SIZE-1;
-	cq.rear=SIZE-1;
-	int choose,num;
-	while(1){
-		printf("\n-----------------------\n");
-		printf("\nChoose an option \n1.Enqueue \n2.Dequeue \n3.Display ");
-		printf("\n-----------------------\n");
-	scanf("%d",&choose);
-	switch(choose){
-		case 1:
-			printf("Enter the number to Enqueue : ");
-			scanf("%d",&num);
-			enqueue(&cq,num);
-			break;
-		case 2:
-			dequeue(&cq);      
-			break;         
-		case 3:		
-			display(&cq);  
-			break;
-		default:
-			printf("Invalid option\n\n");	
-			break;		
-	} 
-}
-}
-=======
-#include<stdio.h>
-#define SIZE 5
-struct CQueue{
-	int front,rear;
-	int item[SIZE];
-}cq;
-void enqueue(struct CQueue *cq,int num){
-	if((cq->rear+1)%SIZE==cq->front){
-		printf("\nQueue overflow\n");
-	}
-	else{
-		cq->rear=(cq->rear+1)%SIZE;
-		cq->item[cq->rear]=num;
-	}
-}
-void dequeue(struct CQueue *cq){
-	if(cq->rear==cq->front){
-		printf("\nQueue underflow\n");
-	}
-	else{
-		cq->front=(cq->front+1)%SIZE;
-		int dt=cq->item[cq->front];
-		printf("\nDequeue item : %d\n",dt);
-	}
-}
-void display(struct CQueue *cq){
-	int i;
-	if(cq->rear==cq->front){
-		printf("\nQueue is empty\n");
-	}
-	else{
-		printf("\nContent of Queue : \n");
-		for(i=(cq->front+1)%SIZE;i!=cq->rear;i=(i+1)%SIZE){
-			printf("%d\t",cq->item[i]);
+		else
+		{
+			cq->front = (cq->front + 1) % SIZE;
+			int dt = cq->item[cq->front];
+			printf("\nDequeue item : %d\n", dt);
 		}
-		printf("%d\t",cq->item[cq->rear]);
 	}
-}
-int main(){
-	cq.front=SIZE-1;
-	cq.rear=SIZE-1;
-	int choose,num;
-	while(1){
-		printf("\n-----------------------\n");
-		printf("\nChoose an option \n1.Enqueue \n2.Dequeue \n3.Display ");
-		printf("\n-----------------------\n");
-	scanf("%d",&choose);
-	switch(choose){
-		case 1:
-			printf("Enter the number to Enqueue : ");
-			scanf("%d",&num);
-			enqueue(&cq,num);
-			break;
-		case 2:
-			dequeue(&cq);      
-			break;         
-		case 3:		
-			display(&cq);  
-			break;
-		default:
-			printf("Invalid option\n\n");	
-			break;		
-	} 
-}
-}
->>>>>>> 8be7ea7e545f5412ddb962cba6a8ce939ec4937d
+
+	//to display the element in cirular queue
+	void display(struct CQueue * cq)
+	{
+		int i;
+		if (cq->rear == cq->front)
+		{
+			printf("\nQueue is empty\n");
+		}
+		else
+		{
+			printf("\nContent of Queue : \n");
+			for (i = (cq->front + 1) % SIZE; i != cq->rear; i = (i + 1) % SIZE)
+			{
+				printf("%d\t", cq->item[i]);
+			}
+			printf("%d\t", cq->item[cq->rear]);
+		}
+	}
+	int main()
+	{
+		cq.front = SIZE - 1;
+		cq.rear = SIZE - 1;
+		int choose, num;
+		while (1)
+		{
+			printf("\n-----------------------\n");
+			printf("\nChoose an option \n1.Enqueue \n2.Dequeue \n3.Display ");
+			printf("\n-----------------------\n");
+			scanf("%d", &choose);
+			switch (choose)
+			{
+			case 1:
+				printf("Enter the number to Enqueue : ");
+				scanf("%d", &num);
+				enqueue(&cq, num);
+				break;
+			case 2:
+				dequeue(&cq);
+				break;
+			case 3:
+				display(&cq);
+				break;
+			default:
+				printf("Invalid option\n\n");
+				break;
+			}
+		}
+	}
