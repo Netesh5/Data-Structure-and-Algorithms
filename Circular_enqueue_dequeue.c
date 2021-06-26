@@ -4,6 +4,8 @@ struct CQueue{
 	int front,rear;
 	int item[SIZE];
 }cq;
+
+//to insert the element in cirular queue
 void enqueue(struct CQueue *cq,int num){
 	if((cq->rear+1)%SIZE==cq->front){
 		printf("\nQueue overflow\n");
@@ -12,7 +14,8 @@ void enqueue(struct CQueue *cq,int num){
 		cq->rear=(cq->rear+1)%SIZE;
 		cq->item[cq->rear]=num;
 	}
-}
+
+//to delete the element in cirular queue
 void dequeue(struct CQueue *cq){
 	if(cq->rear==cq->front){
 		printf("\nQueue underflow\n");
@@ -23,6 +26,7 @@ void dequeue(struct CQueue *cq){
 		printf("\nDequeue item : %d\n",dt);
 	}
 }
+//to display the element in cirular queue
 void display(struct CQueue *cq){
 	int i;
 	if(cq->rear==cq->front){
