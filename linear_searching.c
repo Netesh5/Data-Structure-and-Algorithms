@@ -28,7 +28,7 @@ int main(){
         }
     }
     if(flag==1){
-        printf("\nNumber found in the list at position %d\n\n",pos);
+        printf("\nNumber found at position %d\n\n",pos);
     }
     else{
         printf("\nNumber not found");
