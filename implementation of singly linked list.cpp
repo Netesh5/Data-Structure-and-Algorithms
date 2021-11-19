@@ -3,7 +3,6 @@
 struct SLL{
 	int data;
 	struct SLL *next;	
-
 };
 struct SLL *head=NULL;
 void addatbegining(){
@@ -33,8 +32,8 @@ void display(){
 		}
 	}
 }
-void addat end(){
-	struct SLL *newnode;
+void addatend(){
+	struct SLL *newnode,*temp;
 	int num;
 	printf("Enter the number : ");
 	scanf("%d",&num);
@@ -46,7 +45,10 @@ void addat end(){
 	}else{
 		temp=head;
 	}
-	while(temp->next!=NULL)
+	while(temp->next!=NULL){
+		temp=temp->next;
+	}
+	temp->next=newnode;
 }
 int main(){
 	int choice;
@@ -62,7 +64,7 @@ int main(){
 				display();
 				break;
 			case 3:
-				addat end();
+				addatend();
 			case 4:
 				exit(0);	
 			default:
